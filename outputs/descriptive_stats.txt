@@ -1,0 +1,35 @@
+DESCRIPTIVE STATISTICS
+======================================================================
+
+                           N    Mean      SD  Min   Q1  Median      Q3       Max  Missing
+helpful_vote        700808.0   0.924   5.474  0.0  0.0   0.000   1.000   646.000        0
+AI_generated_score  700808.0   0.113   0.274  0.0  0.0   0.001   0.032     0.999        0
+rating              700808.0   3.960   1.494  1.0  3.0   5.000   5.000     5.000        0
+text_length         700808.0  32.784  45.985  1.0  8.0  19.000  40.000  2585.000        0
+
+Rating distribution:
+rating
+1.0    101948
+2.0     43009
+3.0     56283
+4.0     79318
+5.0    420250
+
+helpful_vote overdispersion check:
+  Mean = 0.924
+  Variance = 29.962
+  Variance/Mean ratio = 32.43
+  --> Strong overdispersion: Negative Binomial recommended
+
+
+AI-suspect reviews (score > 0.5):
+  N = 67,364 (9.61% of total)
+
+Mean AI_score by rating class:
+         mean  median    std   count
+rating                              
+1.0     0.089   0.000  0.250  101948
+2.0     0.111   0.001  0.276   43009
+3.0     0.113   0.001  0.279   56283
+4.0     0.109   0.001  0.270   79318
+5.0     0.119   0.001  0.279  420250

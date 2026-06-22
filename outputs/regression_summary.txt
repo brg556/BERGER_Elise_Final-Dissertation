@@ -1,0 +1,110 @@
+REGRESSION ANALYSIS — FULL SUMMARIES
+======================================================================
+
+Formula: helpful_vote ~ AI_c * rating_c + AI_c * log_length_c
+
+Variance Inflation Factors:
+    variable   VIF
+       const 1.000
+        AI_c 1.001
+    rating_c 1.008
+log_length_c 1.007
+
+======================================================================
+
+MODEL 1: POISSON
+----------------------------------------------------------------------
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:           helpful_vote   No. Observations:               700808
+Model:                            GLM   Df Residuals:                   700802
+Model Family:                 Poisson   Df Model:                            5
+Link Function:                    Log   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -1.4518e+06
+Date:                Mon, 22 Jun 2026   Deviance:                   2.4194e+06
+Time:                        18:10:01   Pearson chi2:                 1.53e+07
+No. Iterations:                     7   Pseudo R-squ. (CS):             0.4853
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Intercept            -0.4421      0.002   -269.451      0.000      -0.445      -0.439
+AI_c                 -0.1813      0.006    -29.749      0.000      -0.193      -0.169
+rating_c              0.0431      0.001     48.658      0.000       0.041       0.045
+AI_c:rating_c        -0.0238      0.004     -6.017      0.000      -0.032      -0.016
+log_length_c          0.7897      0.001    628.796      0.000       0.787       0.792
+AI_c:log_length_c    -0.2280      0.006    -35.900      0.000      -0.240      -0.216
+=====================================================================================
+
+Dispersion statistic: 21.819
+
+======================================================================
+
+MODEL 2: NEGATIVE BINOMIAL
+----------------------------------------------------------------------
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:           helpful_vote   No. Observations:               700808
+Model:                            GLM   Df Residuals:                   700802
+Model Family:        NegativeBinomial   Df Model:                            5
+Link Function:                    Log   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -1.4518e+06
+Date:                Mon, 22 Jun 2026   Deviance:                   2.4194e+06
+Time:                        18:10:01   Pearson chi2:                 1.53e+07
+No. Iterations:                     8   Pseudo R-squ. (CS):             0.4853
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Intercept            -0.4421      0.002   -269.451      0.000      -0.445      -0.439
+AI_c                 -0.1813      0.006    -29.749      0.000      -0.193      -0.169
+rating_c              0.0431      0.001     48.658      0.000       0.041       0.045
+AI_c:rating_c        -0.0238      0.004     -6.017      0.000      -0.032      -0.016
+log_length_c          0.7897      0.001    628.796      0.000       0.787       0.792
+AI_c:log_length_c    -0.2280      0.006    -35.900      0.000      -0.240      -0.216
+=====================================================================================
+
+======================================================================
+
+MODEL 3: OLS with HC3 robust SE (robustness check)
+----------------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           helpful_vote   R-squared:                       0.021
+Model:                            OLS   Adj. R-squared:                  0.021
+Method:                 Least Squares   F-statistic:                     1007.
+Date:                Mon, 22 Jun 2026   Prob (F-statistic):               0.00
+Time:                        18:10:01   Log-Likelihood:            -2.1784e+06
+No. Observations:              700808   AIC:                         4.357e+06
+Df Residuals:                  700802   BIC:                         4.357e+06
+Df Model:                           5                                         
+Covariance Type:                  HC3                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Intercept             0.9236      0.006    142.606      0.000       0.911       0.936
+AI_c                 -0.3729      0.019    -19.223      0.000      -0.411      -0.335
+rating_c              0.0619      0.004     14.847      0.000       0.054       0.070
+AI_c:rating_c        -0.0494      0.012     -4.032      0.000      -0.073      -0.025
+log_length_c          0.7126      0.010     68.558      0.000       0.692       0.733
+AI_c:log_length_c    -0.4057      0.031    -13.146      0.000      -0.466      -0.345
+==============================================================================
+Omnibus:                  2029051.490   Durbin-Watson:                   1.963
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):     221576822531.137
+Skew:                          39.741   Prob(JB):                         0.00
+Kurtosis:                    2756.515   Cond. No.                         6.55
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+======================================================================
+
+MODEL COMPARISON
+----------------------------------------------------------------------
+            Model         AIC  Pseudo_R2 / R2       LogLik
+          Poisson 2903534.149           0.138 -1451761.075
+Negative Binomial 2903534.048           0.138 -1451761.024
+        OLS (HC3) 4356886.995           0.021 -2178437.497
+
+BEST MODEL (lowest AIC): Negative Binomial
