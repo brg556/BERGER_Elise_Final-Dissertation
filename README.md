@@ -13,7 +13,7 @@ Code and analysis for the MSc Business Analytics dissertation:
     ├── 01_data_prep.ipynb        # main notebook (download + clean + merge + filter)
     ├── 02_pilot_test.ipynb       # test the dataset
     ├── 03_analysis.ipynb         # descriptives statistics + figures + regression
-    ├── 04_run_roberta_model.py   # run the RoBERTa Model
+    ├── 04_run_roberta.py   # run the RoBERTa Model
     ├── data/                     # raw + processed data (not tracked — see "Data")
     ├── figures/                  # generated figures (.png, 300 dpi)
     └── outputs/                   # generated tables (.csv, .txt)
